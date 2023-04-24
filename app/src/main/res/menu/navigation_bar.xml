@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/home_selector"
+        android:enabled="true"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/myTicketsFragment"
+        android:icon="@drawable/my_tickets_selector"
+        android:enabled="true"
+        android:title="My Tickets" />
+
+    <item
+        android:id="@+id/adminFragment"
+        android:icon="@drawable/admin_selector"
+        android:enabled="true"
+        android:title="Admin" />
+</menu>

@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="primary">#FF1E7EFE</color>
+    <color name="background_btn_card">#FFEBF0FF</color>
+    <color name="gray">#FF767880</color>
+    <color name="error_background">#FFFFE1E1</color>
+    <color name="error_on_background">#FF961212</color>
 </resources>
