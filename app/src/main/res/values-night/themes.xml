@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Base.Theme.Volans" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:background">@color/black</item>
+        <item name="android:buttonStyle">@style/button_secondary</item>
 
         <item name="android:navigationBarColor">@android:color/black</item>
         <item name="android:statusBarColor">@android:color/transparent</item>

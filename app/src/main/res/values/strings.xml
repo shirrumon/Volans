@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Volans</string>
+    <string name="insert_db_from_asset">Insert DB from asset</string>
+    <string name="delete_database">Delete Database</string>
+    <string name="place_of_departure">Place of departure</string>
+    <string name="landing_place">Landing place</string>
+    <string name="departure_date">Departure date</string>
+    <string name="departure_time">Departure time</string>
+    <string name="landing_time">Landing time</string>
+    <string name="price">Price</string>
+    <string name="create_a_ticket">Create a ticket</string>
 </resources>
