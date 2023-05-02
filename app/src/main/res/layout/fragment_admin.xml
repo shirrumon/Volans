@@ -67,8 +67,9 @@
         android:background="@drawable/edit_text_admin"
         android:drawableStart="@drawable/ic_date"
         android:drawablePadding="12dp"
+        android:focusable="false"
         android:hint="@string/departure_date"
-        android:inputType="date"
+        android:inputType="none"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_landing_place" />
 
@@ -81,8 +82,9 @@
         android:background="@drawable/edit_text_admin"
         android:drawableStart="@drawable/ic_departure_time"
         android:drawablePadding="12dp"
+        android:focusable="false"
         android:hint="@string/departure_time"
-        android:inputType="time"
+        android:inputType="none"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_departure_date" />
 
@@ -95,8 +97,9 @@
         android:background="@drawable/edit_text_admin"
         android:drawableStart="@drawable/ic_landing_time"
         android:drawablePadding="12dp"
+        android:focusable="false"
         android:hint="@string/landing_time"
-        android:inputType="time"
+        android:inputType="none"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_departure_time" />
 
