@@ -26,7 +26,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        activity?.window?.statusBarColor = resources.getColor(R.color.background_btn_card, null)
+//        activity?.window?.statusBarColor = resources.getColor(R.color.background_btn_card, null)
 
         binding.toolbar.outlineProvider = null
 

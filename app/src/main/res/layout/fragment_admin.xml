@@ -1,133 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:fitsSystemWindows="true">
+    android:orientation="vertical"
+    android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_insertDB"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/insert_db_from_asset"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fitsSystemWindows="true">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_deleteDB"
-        style="@style/button_delete"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/delete_database"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_insertDB" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_insertDB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/insert_db_from_asset"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/et_place_of_departure"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="48dp"
-        android:autofillHints=""
-        android:background="@drawable/edit_text_admin"
-        android:drawableStart="@drawable/ic_flight_takeoff"
-        android:drawablePadding="12dp"
-        android:hint="@string/place_of_departure"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_deleteDB" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_deleteDB"
+            style="@style/button_delete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/delete_database"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_insertDB" />
 
-    <EditText
-        android:id="@+id/et_landing_place"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginVertical="16dp"
-        android:background="@drawable/edit_text_admin"
-        android:drawableStart="@drawable/ic_flight_land"
-        android:drawablePadding="12dp"
-        android:hint="@string/landing_place"
-        android:inputType="text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_place_of_departure" />
+        <EditText
+            android:id="@+id/et_place_of_departure"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="48dp"
+            android:autofillHints=""
+            android:background="@drawable/edit_text_admin"
+            android:drawableStart="@drawable/ic_flight_takeoff"
+            android:drawablePadding="12dp"
+            android:hint="@string/place_of_departure"
+            android:inputType="text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_deleteDB" />
 
-    <EditText
-        android:id="@+id/et_departure_date"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginVertical="16dp"
-        android:background="@drawable/edit_text_admin"
-        android:drawableStart="@drawable/ic_date"
-        android:drawablePadding="12dp"
-        android:focusable="false"
-        android:hint="@string/departure_date"
-        android:inputType="none"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_landing_place" />
+        <EditText
+            android:id="@+id/et_landing_place"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="16dp"
+            android:background="@drawable/edit_text_admin"
+            android:drawableStart="@drawable/ic_flight_land"
+            android:drawablePadding="12dp"
+            android:hint="@string/landing_place"
+            android:inputType="text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_place_of_departure" />
 
-    <EditText
-        android:id="@+id/et_departure_time"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginVertical="16dp"
-        android:background="@drawable/edit_text_admin"
-        android:drawableStart="@drawable/ic_departure_time"
-        android:drawablePadding="12dp"
-        android:focusable="false"
-        android:hint="@string/departure_time"
-        android:inputType="none"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_departure_date" />
+        <EditText
+            android:id="@+id/et_departure_date"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="16dp"
+            android:background="@drawable/edit_text_admin"
+            android:drawableStart="@drawable/ic_date"
+            android:drawablePadding="12dp"
+            android:focusable="false"
+            android:hint="@string/departure_date"
+            android:inputType="none"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_landing_place" />
 
-    <EditText
-        android:id="@+id/et_landing_time"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginVertical="16dp"
-        android:background="@drawable/edit_text_admin"
-        android:drawableStart="@drawable/ic_landing_time"
-        android:drawablePadding="12dp"
-        android:focusable="false"
-        android:hint="@string/landing_time"
-        android:inputType="none"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_departure_time" />
+        <EditText
+            android:id="@+id/et_departure_time"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="16dp"
+            android:background="@drawable/edit_text_admin"
+            android:drawableStart="@drawable/ic_departure_time"
+            android:drawablePadding="12dp"
+            android:focusable="false"
+            android:hint="@string/departure_time"
+            android:inputType="none"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_departure_date" />
 
-    <EditText
-        android:id="@+id/et_price"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginVertical="16dp"
-        android:background="@drawable/edit_text_admin"
-        android:drawableStart="@drawable/ic_price"
-        android:drawablePadding="12dp"
-        android:hint="@string/price"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_landing_time" />
+        <EditText
+            android:id="@+id/et_landing_time"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="16dp"
+            android:background="@drawable/edit_text_admin"
+            android:drawableStart="@drawable/ic_landing_time"
+            android:drawablePadding="12dp"
+            android:focusable="false"
+            android:hint="@string/landing_time"
+            android:inputType="none"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_departure_time" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_create_ticket"
-        style="@style/button_primary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginVertical="48dp"
-        android:enabled="false"
-        android:text="@string/create_a_ticket"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_price" />
+        <EditText
+            android:id="@+id/et_price"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="16dp"
+            android:background="@drawable/edit_text_admin"
+            android:drawableStart="@drawable/ic_price"
+            android:drawablePadding="12dp"
+            android:hint="@string/price"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_landing_time" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_create_ticket"
+            style="@style/button_primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="48dp"
+            android:enabled="false"
+            android:text="@string/create_a_ticket"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_price" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
