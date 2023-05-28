@@ -1,10 +1,14 @@
 package com.polodarb.volans.ui.fragments
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.TransitionDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.polodarb.volans.R
 import com.polodarb.volans.databinding.FragmentMyTicketsBinding
 
 class MyTicketsFragment : Fragment() {
@@ -15,10 +19,16 @@ class MyTicketsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View = binding.root
+    ): View {
+        
+        activity?.window?.statusBarColor = resources.getColor(R.color.white, null)
+
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
     }
 
 }

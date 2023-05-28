@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
+import com.polodarb.volans.R
 import com.polodarb.volans.databinding.FragmentAdminBinding
 
 class AdminFragment : Fragment() {
@@ -23,6 +24,8 @@ class AdminFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        activity?.window?.statusBarColor = resources.getColor(R.color.white, null)
 
         val picker =
             MaterialTimePicker.Builder()

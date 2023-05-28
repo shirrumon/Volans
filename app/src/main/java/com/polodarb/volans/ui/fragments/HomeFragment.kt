@@ -1,5 +1,8 @@
 package com.polodarb.volans.ui.fragments
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.TransitionDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,17 +24,20 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View = binding.root
+    ): View {
+
+        activity?.window?.statusBarColor = resources.getColor(R.color.background_btn_card, null)
+
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        activity?.window?.statusBarColor = resources.getColor(R.color.background_btn_card, null)
-
         binding.toolbar.outlineProvider = null
 
         binding.rvFlightCardHome.layoutManager = LinearLayoutManager(requireContext())
-        val adapter = HomeFlightCardAdapter(listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+        val adapter = HomeFlightCardAdapter(listOf(1, 2, 3, 4, 5))
         binding.rvFlightCardHome.adapter = adapter
     }
 

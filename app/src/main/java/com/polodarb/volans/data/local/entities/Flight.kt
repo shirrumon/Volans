@@ -2,11 +2,25 @@ package com.polodarb.volans.data.local.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import java.sql.Types.DATE
 import java.sql.Types.TIME
 
-@Entity(tableName = "flight")
+@Entity(
+    tableName = "flight",
+    foreignKeys = [
+        ForeignKey(
+            entity = Flight::class,
+            parentColumns = ["airport_code"],
+            childColumns = ["departure_code"]
+        ),
+        ForeignKey(
+            entity = Client::class,
+            parentColumns = ["airport_code"],
+            childColumns = ["arrival_code"]
+        )
+    ])
 data class Flight(
     @PrimaryKey @ColumnInfo(name = "flight_code") val flightCode: Int,
     @ColumnInfo(name = "departure_code") val departureCode: Int, //foreign key (airport_code)

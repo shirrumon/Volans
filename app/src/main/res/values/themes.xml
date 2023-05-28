@@ -1,6 +1,6 @@
 <resources>
-
     <style name="Base.Theme.Volans" parent="Theme.Material3.DayNight.NoActionBar">
+
         <item name="android:buttonStyle">@style/button_secondary</item>
 
         <item name="android:navigationBarColor">@android:color/white</item>
