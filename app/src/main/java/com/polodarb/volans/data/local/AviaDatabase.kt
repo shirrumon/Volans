@@ -22,6 +22,6 @@ import com.polodarb.volans.data.local.entities.Ticket
 ) // exportSchema = false?
 abstract class AviaDatabase : RoomDatabase() {
 
-    abstract fun breedsDao(): BreedsDao
+    abstract fun aviaDao(): AviaDao
 
 }

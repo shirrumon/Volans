@@ -10,16 +10,16 @@ import java.sql.Types.TIME
 @Entity(
     tableName = "flight",
     foreignKeys = [
-        ForeignKey(
-            entity = Flight::class,
-            parentColumns = ["airport_code"],
-            childColumns = ["departure_code"]
-        ),
-        ForeignKey(
-            entity = Client::class,
-            parentColumns = ["airport_code"],
-            childColumns = ["arrival_code"]
-        )
+//        ForeignKey(
+//            entity = Flight::class,
+//            parentColumns = ["airport_code"],
+//            childColumns = ["departure_code"]
+//        ),
+//        ForeignKey(
+//            entity = Client::class,
+//            parentColumns = ["airport_code"],
+//            childColumns = ["arrival_code"]
+//        )
     ])
 data class Flight(
     @PrimaryKey @ColumnInfo(name = "flight_code") val flightCode: Int,

@@ -29,9 +29,9 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun provideDao(
-        groupDatabase: AviaDatabase
+        aviaDatabase: AviaDatabase
     ): AviaDao {
-        return groupDatabase.breedsDao()
+        return aviaDatabase.aviaDao()
     }
 
 }

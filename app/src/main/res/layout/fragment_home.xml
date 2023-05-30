@@ -47,8 +47,9 @@
             android:drawablePadding="12dp"
             android:hint="@string/place_of_departure"
             android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/firstLayout" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/et_landing_place"
@@ -61,18 +62,49 @@
             android:drawablePadding="12dp"
             android:hint="@string/landing_place"
             android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_place_of_departure" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_create_ticket"
             style="@style/button_primary"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="24dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginVertical="16dp"
             android:text="Search"
-            app:layout_constraintEnd_toEndOf="@id/et_landing_place"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_change"
+            app:layout_constraintTop_toBottomOf="@+id/et_landing_place" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_change"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:layout_marginHorizontal="16dp"
+            android:src="@drawable/btn_change"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_create_ticket"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_filter"
+            app:layout_constraintTop_toBottomOf="@+id/et_landing_place" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_filter"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/btn_filter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_change"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_landing_place" />
 
@@ -90,7 +122,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/card_corner"
-            android:paddingTop="16dp"
+            android:paddingTop="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/secondLayout"
             app:layout_constraintStart_toStartOf="@id/secondLayout"
