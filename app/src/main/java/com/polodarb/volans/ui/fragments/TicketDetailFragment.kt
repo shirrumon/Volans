@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.polodarb.volans.R
 import com.polodarb.volans.databinding.FragmentTicketDetailBinding
 
 class TicketDetailFragment : Fragment() {
@@ -15,10 +17,20 @@ class TicketDetailFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View = binding.root
+    ): View {
+
+        activity?.window?.statusBarColor = resources.getColor(R.color.white, null)
+
+        return binding.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.btnBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
+
     }
 
 }

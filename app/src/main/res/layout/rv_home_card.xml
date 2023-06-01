@@ -55,6 +55,7 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <TextView
+                android:id="@+id/tv_time_departure"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="23:30"
@@ -63,6 +64,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tv_date_departure"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -124,6 +126,7 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <TextView
+                android:id="@+id/tv_time_landing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="07:00"
@@ -132,6 +135,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tv_date_landing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

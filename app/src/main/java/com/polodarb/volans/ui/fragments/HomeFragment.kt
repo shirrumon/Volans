@@ -1,5 +1,6 @@
 package com.polodarb.volans.ui.fragments
 
+import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.TransitionDrawable
@@ -16,6 +17,7 @@ import com.google.android.material.appbar.AppBarLayout
 import com.polodarb.volans.R
 import com.polodarb.volans.databinding.FragmentHomeBinding
 import com.polodarb.volans.ui.recyclers.HomeFlightCardAdapter
+import com.polodarb.volans.ui.recyclers.ItemClickListener
 
 class HomeFragment : Fragment() {
 
@@ -38,7 +40,12 @@ class HomeFragment : Fragment() {
         binding.toolbar.outlineProvider = null
 
         binding.rvFlightCardHome.layoutManager = LinearLayoutManager(requireContext())
-        val adapter = HomeFlightCardAdapter(listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+        val adapter = HomeFlightCardAdapter(listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10), object : ItemClickListener {
+            override fun itemOnClick(item: Int) {
+                findNavController().navigate(R.id.action_homeFragment_to_ticketDetailFragment)
+            }
+        })
+
         binding.rvFlightCardHome.adapter = adapter
 
         binding.btnFilter.setOnClickListener {

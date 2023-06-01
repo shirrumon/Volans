@@ -67,7 +67,7 @@
             app:layout_constraintTop_toBottomOf="@+id/et_place_of_departure" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_create_ticket"
+            android:id="@+id/btn_search_ticket"
             style="@style/button_primary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
             android:layout_marginHorizontal="16dp"
             android:src="@drawable/btn_change"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btn_create_ticket"
+            app:layout_constraintEnd_toStartOf="@+id/btn_search_ticket"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn_filter"
             app:layout_constraintTop_toBottomOf="@+id/et_landing_place" />

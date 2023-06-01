@@ -9,18 +9,18 @@ import java.sql.Types.TIME
 
 @Entity(
     tableName = "flight",
-    foreignKeys = [
-//        ForeignKey(
-//            entity = Flight::class,
-//            parentColumns = ["airport_code"],
-//            childColumns = ["departure_code"]
-//        ),
-//        ForeignKey(
-//            entity = Client::class,
-//            parentColumns = ["airport_code"],
-//            childColumns = ["arrival_code"]
-//        )
-    ])
+    foreignKeys = [ForeignKey(
+        entity = Airport::class,
+        parentColumns = arrayOf("airport_code"),
+        childColumns = arrayOf("departure_code"),
+        onDelete = ForeignKey.CASCADE
+    ), ForeignKey(
+        entity = Airport::class,
+        parentColumns = arrayOf("airport_code"),
+        childColumns = arrayOf("arrival_code"),
+        onDelete = ForeignKey.CASCADE
+    )]
+)
 data class Flight(
     @PrimaryKey @ColumnInfo(name = "flight_code") val flightCode: Int,
     @ColumnInfo(name = "departure_code") val departureCode: Int, //foreign key (airport_code)
@@ -28,5 +28,7 @@ data class Flight(
     @ColumnInfo(name = "departure_date", typeAffinity = DATE) val departureDate: String,
     @ColumnInfo(name = "departure_time", typeAffinity = TIME) val departureTime: String,
     @ColumnInfo(name = "arrival_time", typeAffinity = TIME) val arrivalTime: String,
-    @ColumnInfo(name = "price") val price: Float
+    @ColumnInfo(name = "price") val price: Float,
+
+    @ColumnInfo(name = "airport_code") val airportCode: Int,
 )
