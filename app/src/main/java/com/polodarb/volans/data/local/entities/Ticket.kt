@@ -22,7 +22,7 @@ import java.sql.Types.DATE
     ]
 )
 data class Ticket(
-    @PrimaryKey @ColumnInfo(name = "ticket_number") val ticketNumber: Int,
+    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "ticket_number") val ticketNumber: Int,
     @ColumnInfo(name = "flight_code") val flightCode: Int, //foreign key (flight_code)
     @ColumnInfo(name = "client_code") val clientCode: Int, //foreign key (client_code)
     @ColumnInfo(name = "ticket_buy_date", typeAffinity = DATE) val ticketBuyDate: String,

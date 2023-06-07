@@ -11,6 +11,9 @@
         <item name="android:navigationBarColor">@android:color/white</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">true</item>
+
+        <item name="colorSurfaceVariant">#D9E1FF</item>
+
     </style>
 
     <style name="CustomCardViewStyle" parent="Widget.MaterialComponents.CardView">

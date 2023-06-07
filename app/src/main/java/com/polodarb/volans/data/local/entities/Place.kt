@@ -6,6 +6,6 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "place")
 data class Place(
-    @PrimaryKey @ColumnInfo(name = "place_code") val placeCode: Int,
+    @PrimaryKey(autoGenerate = true) val id: Int,@ColumnInfo(name = "place_code") val placeCode: Int,
     @ColumnInfo(name = "place_number") val placeNumber: Int
 )

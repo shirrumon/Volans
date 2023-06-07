@@ -18,7 +18,9 @@ import com.polodarb.volans.R
 import com.polodarb.volans.databinding.FragmentHomeBinding
 import com.polodarb.volans.ui.recyclers.HomeFlightCardAdapter
 import com.polodarb.volans.ui.recyclers.ItemClickListener
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private val binding: FragmentHomeBinding by lazy { FragmentHomeBinding.inflate(layoutInflater) }

@@ -10,7 +10,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.polodarb.volans.R
 import com.polodarb.volans.databinding.FragmentMyTicketsBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MyTicketsFragment : Fragment() {
 
     private val binding: FragmentMyTicketsBinding by lazy { FragmentMyTicketsBinding.inflate(layoutInflater) }

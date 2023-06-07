@@ -22,7 +22,7 @@ import java.sql.Types.TIME
     )]
 )
 data class Flight(
-    @PrimaryKey @ColumnInfo(name = "flight_code") val flightCode: Int,
+    @ColumnInfo(name = "flight_code") @PrimaryKey(autoGenerate = true) val flightCode: Int,
     @ColumnInfo(name = "departure_code") val departureCode: Int, //foreign key (airport_code)
     @ColumnInfo(name = "arrival_code") val arrivalCode: Int, //foreign key (airport_code)
     @ColumnInfo(name = "departure_date", typeAffinity = DATE) val departureDate: String,

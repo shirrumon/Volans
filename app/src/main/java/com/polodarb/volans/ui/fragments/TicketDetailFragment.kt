@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.polodarb.volans.R
 import com.polodarb.volans.databinding.FragmentTicketDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TicketDetailFragment : Fragment() {
 
     private val binding: FragmentTicketDetailBinding by lazy { FragmentTicketDetailBinding.inflate(layoutInflater) }
