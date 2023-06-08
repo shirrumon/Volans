@@ -27,7 +27,7 @@ import kotlin.random.Random
         Place::class,
         Ticket::class
     ],
-    version = 7
+    version = 9
 )
 abstract class AviaDatabase : RoomDatabase() {
     abstract fun aviaDao(): AviaDao
@@ -40,22 +40,50 @@ abstract class AviaDatabase : RoomDatabase() {
             if(instance == null)
                 instance = Room.databaseBuilder(ctx.applicationContext, AviaDatabase::class.java,
                     "avia_database")
-                    //.createFromAsset("database/myapp.db")
+                    .addMigrations(MIGRATION_7_8)
                     .build()
 
             return instance!!
 
         }
 
-        private val roomCallback = object : Callback() {
-            override fun onCreate(db: SupportSQLiteDatabase) {
-                super.onCreate(db)
-
+        private val MIGRATION_7_8 = object : Migration(8, 9) {
+            override fun migrate(database: SupportSQLiteDatabase) {
                 val clinetCV = ContentValues()
-                clinetCV.put("client_pib", "sdsd")
-                clinetCV.put("client_passport", "cds")
-                clinetCV.put("client_phone", "dasdsad")
-                db.insert(
+                clinetCV.put("client_pib", "pidor")
+                clinetCV.put("client_passport", "pidor")
+                clinetCV.put("client_phone", "pidor")
+                database.insert(
+                    "client",
+                    1,
+                    clinetCV
+                )
+                clinetCV.clear()
+
+                clinetCV.put("client_pib", "pidor")
+                clinetCV.put("client_passport", "pidor")
+                clinetCV.put("client_phone", "pidor")
+                database.insert(
+                    "client",
+                    1,
+                    clinetCV
+                )
+                clinetCV.clear()
+
+                clinetCV.put("client_pib", "pidor")
+                clinetCV.put("client_passport", "pidor")
+                clinetCV.put("client_phone", "pidor")
+                database.insert(
+                    "client",
+                    1,
+                    clinetCV
+                )
+                clinetCV.clear()
+
+                clinetCV.put("client_pib", "pidor")
+                clinetCV.put("client_passport", "pidor")
+                clinetCV.put("client_phone", "pidor")
+                database.insert(
                     "client",
                     1,
                     clinetCV
