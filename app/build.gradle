@@ -10,7 +10,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.polodarb.rdogs"
+        applicationId "com.polodarb.volans"
         minSdk 28
         targetSdk 33
         versionCode 1

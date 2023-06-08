@@ -23,7 +23,9 @@ object DatabaseModule {
             app,
             AviaDatabase::class.java,
             "avia_database"
-        ).build()
+        )
+//            .createFromAsset("avia_database_assets.sql")
+            .build()
     }
 
     @Provides

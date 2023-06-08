@@ -10,6 +10,8 @@ class Repository @Inject constructor(val db: AviaDao) {
 
     fun getAllTickets() = db.getAllTickets()
 
+    fun getAirports() = db.getAirports()
+
     suspend fun addAirport(airport: Airport) = db.addAirport(airport)
 
     suspend fun addFlight(flight: Flight) = db.addFlight(flight)

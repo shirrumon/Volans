@@ -19,6 +19,7 @@ class AdminViewModel @Inject constructor(
         repo.addAirport(airport)
     }
 
+
     suspend fun addFlight(flight: Flight) {
         repo.addFlight(flight)
     }

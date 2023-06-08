@@ -44,31 +44,31 @@ class AdminFragment : Fragment() {
 
         val viewModel: AdminViewModel by viewModels()
 
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.addAirport(
-                Airport(
-                    airportCode = 0,
-                    airportCountry = "Ukraine",
-                    airportName = "[KHA]",
-                    airportCity = "Kiyv"
-                )
-            )
-        }
 
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewModel.addFlight(
-                Flight(
-                    flightCode = 0,
-                    departureCode = 0,
-                    arrivalCode = 0,
-                    departureDate = "06/06/2023",
-                    departureTime = "23:30",
-                    arrivalTime = "7:00",
-                    price = 15000f,
-                    airportCode = 0 // ??
-                )
-            )
-        }
+//        viewLifecycleOwner.lifecycleScope.launch {
+//            viewModel.addAirport(
+//                Airport(
+//                    airportCode = 0,
+//                    airportCountry = "Ukraine",
+//                    airportName = "[KHA]",
+//                    airportCity = "Kiyv"
+//                )
+//            )
+//        }
+
+//        viewLifecycleOwner.lifecycleScope.launch {
+//            viewModel.addFlight(
+//                Flight(
+//                    flightCode = 0,
+//                    departureCode = 0,
+//                    arrivalCode = 0,
+//                    departureDate = "06/06/2023",
+//                    departureTime = "23:30",
+//                    arrivalTime = "7:00",
+//                    price = 15000f
+//                )
+//            )
+//        }
 
         binding.etPlaceOfDeparture.setOnClickListener {
             MaterialAlertDialogBuilder(requireContext())
@@ -137,7 +137,7 @@ class AdminFragment : Fragment() {
 
         pickerTimeLanding.addOnPositiveButtonClickListener {
             val formattedMinute = String.format("%02d", pickerTimeLanding.minute)
-            binding.etLandingTime.setText("${pickerTimeDeparture.hour}:${formattedMinute}")
+            binding.etLandingTime.setText("${pickerTimeLanding.hour}:${formattedMinute}")
         }
 
         pickerDateDeparture.addOnPositiveButtonClickListener {

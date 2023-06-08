@@ -1,6 +1,9 @@
 package com.polodarb.volans.data.local.entities
 
 import androidx.room.ColumnInfo
+import androidx.room.ColumnInfo.Companion.INTEGER
+import androidx.room.ColumnInfo.Companion.REAL
+import androidx.room.ColumnInfo.Companion.TEXT
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
@@ -22,13 +25,11 @@ import java.sql.Types.TIME
     )]
 )
 data class Flight(
-    @ColumnInfo(name = "flight_code") @PrimaryKey(autoGenerate = true) val flightCode: Int,
-    @ColumnInfo(name = "departure_code") val departureCode: Int, //foreign key (airport_code)
-    @ColumnInfo(name = "arrival_code") val arrivalCode: Int, //foreign key (airport_code)
-    @ColumnInfo(name = "departure_date", typeAffinity = DATE) val departureDate: String,
-    @ColumnInfo(name = "departure_time", typeAffinity = TIME) val departureTime: String,
-    @ColumnInfo(name = "arrival_time", typeAffinity = TIME) val arrivalTime: String,
-    @ColumnInfo(name = "price") val price: Float,
-
-    @ColumnInfo(name = "airport_code") val airportCode: Int,
+    @ColumnInfo(name = "flight_code", typeAffinity = INTEGER) @PrimaryKey(autoGenerate = true) val flightCode: Int,
+    @ColumnInfo(name = "departure_code", typeAffinity = INTEGER) val departureCode: Int, //foreign key (airport_code)
+    @ColumnInfo(name = "arrival_code", typeAffinity = INTEGER) val arrivalCode: Int, //foreign key (airport_code)
+    @ColumnInfo(name = "departure_date", typeAffinity = TEXT) val departureDate: String,
+    @ColumnInfo(name = "departure_time", typeAffinity = TEXT) val departureTime: String,
+    @ColumnInfo(name = "arrival_time", typeAffinity = TEXT) val arrivalTime: String,
+    @ColumnInfo(name = "price", typeAffinity = REAL) val price: Float
 )

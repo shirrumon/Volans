@@ -14,6 +14,9 @@ interface AviaDao {
     @Query("SELECT * FROM ticket")
     fun getAllTickets(): List<Ticket>
 
+    @Query("SELECT * FROM airport WHERE airport_city = 'Kharviv'")
+    fun getAirports(): List<Airport>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addAirport(airport: Airport)
 
