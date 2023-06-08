@@ -1,0 +1,311 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "b7285f06012d09a0dc15fbff2da15887",
+    "entities": [
+      {
+        "tableName": "airport",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`airport_code` INTEGER NOT NULL, `airport_name` TEXT NOT NULL, `airport_country` TEXT NOT NULL, `airport_city` TEXT NOT NULL, PRIMARY KEY(`airport_code`))",
+        "fields": [
+          {
+            "fieldPath": "airportCode",
+            "columnName": "airport_code",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "airportName",
+            "columnName": "airport_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "airportCountry",
+            "columnName": "airport_country",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "airportCity",
+            "columnName": "airport_city",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "airport_code"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "client",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`client_code` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `client_pib` TEXT NOT NULL, `client_passport` TEXT NOT NULL, `client_phone` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "clientCode",
+            "columnName": "client_code",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clientPIB",
+            "columnName": "client_pib",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clientPassport",
+            "columnName": "client_passport",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clientPhone",
+            "columnName": "client_phone",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "client_code"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "employee",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`employee_code` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `employee_pib` TEXT NOT NULL, `employee_position` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "employeeCode",
+            "columnName": "employee_code",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "employeePIB",
+            "columnName": "employee_pib",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "employeePosition",
+            "columnName": "employee_position",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "employee_code"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "flight",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`flight_code` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `departure_code` INTEGER NOT NULL, `arrival_code` INTEGER NOT NULL, `departure_date` TEXT NOT NULL, `departure_time` TEXT NOT NULL, `arrival_time` TEXT NOT NULL, `price` REAL NOT NULL, FOREIGN KEY(`departure_code`) REFERENCES `airport`(`airport_code`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`arrival_code`) REFERENCES `airport`(`airport_code`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "flightCode",
+            "columnName": "flight_code",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "departureCode",
+            "columnName": "departure_code",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "arrivalCode",
+            "columnName": "arrival_code",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "departureDate",
+            "columnName": "departure_date",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "departureTime",
+            "columnName": "departure_time",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "arrivalTime",
+            "columnName": "arrival_time",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "price",
+            "columnName": "price",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "flight_code"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "airport",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "departure_code"
+            ],
+            "referencedColumns": [
+              "airport_code"
+            ]
+          },
+          {
+            "table": "airport",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "arrival_code"
+            ],
+            "referencedColumns": [
+              "airport_code"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "place",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`place_code` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `place_number` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "placeCode",
+            "columnName": "place_code",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "placeNumber",
+            "columnName": "place_number",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "place_code"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "ticket",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ticket_number` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `flight_code` INTEGER NOT NULL, `client_code` INTEGER NOT NULL, `ticket_buy_date` TEXT NOT NULL, `place_number` INTEGER NOT NULL, `ticket_insurance` INTEGER NOT NULL, FOREIGN KEY(`flight_code`) REFERENCES `flight`(`flight_code`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`client_code`) REFERENCES `client`(`client_code`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`place_number`) REFERENCES `place`(`place_code`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "fields": [
+          {
+            "fieldPath": "ticketNumber",
+            "columnName": "ticket_number",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "flightCode",
+            "columnName": "flight_code",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clientCode",
+            "columnName": "client_code",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ticketBuyDate",
+            "columnName": "ticket_buy_date",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "placeNumber",
+            "columnName": "place_number",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ticketInsurance",
+            "columnName": "ticket_insurance",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "ticket_number"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "flight",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "flight_code"
+            ],
+            "referencedColumns": [
+              "flight_code"
+            ]
+          },
+          {
+            "table": "client",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "client_code"
+            ],
+            "referencedColumns": [
+              "client_code"
+            ]
+          },
+          {
+            "table": "place",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "place_number"
+            ],
+            "referencedColumns": [
+              "place_code"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b7285f06012d09a0dc15fbff2da15887')"
+    ]
+  }
+}

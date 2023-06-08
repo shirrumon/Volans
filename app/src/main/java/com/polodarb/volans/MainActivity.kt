@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatDelegate
@@ -14,14 +15,21 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI.setupWithNavController
+import com.polodarb.volans.data.local.AviaDao
+import com.polodarb.volans.data.local.AviaDatabase
 import com.polodarb.volans.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
-
+class MainActivity: AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-
+    @OptIn(DelicateCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -39,6 +47,12 @@ class MainActivity : AppCompatActivity() {
             when (destination.id) {
                 R.id.filterFragments, R.id.ticketDetailFragment -> binding.bottomNavigationView.visibility = View.GONE
                 else -> binding.bottomNavigationView.visibility = View.VISIBLE
+            }
+        }
+        GlobalScope.launch {
+            withContext(Dispatchers.IO) {
+                val db = AviaDatabase.getInstance(this@MainActivity).aviaDao()
+                Log.e("testReverse", db.getAirports().toString())
             }
         }
 
