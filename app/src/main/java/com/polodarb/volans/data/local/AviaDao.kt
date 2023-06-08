@@ -17,10 +17,10 @@ interface AviaDao {
     @Query("SELECT * FROM airport WHERE airport_city = 'Kharviv'")
     fun getAirports(): List<Airport>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert
     suspend fun addAirport(airport: Airport)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert
     suspend fun addFlight(flight: Flight)
 
 }

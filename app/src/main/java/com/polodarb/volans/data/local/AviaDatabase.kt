@@ -1,9 +1,11 @@
 package com.polodarb.volans.data.local
 
+import android.content.ContentValues
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.polodarb.volans.data.local.entities.Airport
 import com.polodarb.volans.data.local.entities.Client
@@ -25,7 +27,7 @@ import kotlin.random.Random
         Place::class,
         Ticket::class
     ],
-    version = 2
+    version = 7
 )
 abstract class AviaDatabase : RoomDatabase() {
     abstract fun aviaDao(): AviaDao
@@ -38,8 +40,7 @@ abstract class AviaDatabase : RoomDatabase() {
             if(instance == null)
                 instance = Room.databaseBuilder(ctx.applicationContext, AviaDatabase::class.java,
                     "avia_database")
-                    .fallbackToDestructiveMigration()
-                    .addCallback(roomCallback)
+                    //.createFromAsset("database/myapp.db")
                     .build()
 
             return instance!!
@@ -49,49 +50,17 @@ abstract class AviaDatabase : RoomDatabase() {
         private val roomCallback = object : Callback() {
             override fun onCreate(db: SupportSQLiteDatabase) {
                 super.onCreate(db)
-                populateDatabase(instance!!)
-            }
-        }
 
-        @OptIn(DelicateCoroutinesApi::class)
-        private fun populateDatabase(db: AviaDatabase) {
-            val dataBase = db.aviaDao()
-
-            val airPortsData: ArrayList<Airport> = arrayListOf()
-            for(i in 0..10){
-                airPortsData.plus(
-                    Airport(
-                        airportCode = Random.nextInt(0,100),
-                        airportCity = "city-$i",
-                        airportCountry = "country-$i",
-                        airportName = "airport_name-$i"
-                    )
+                val clinetCV = ContentValues()
+                clinetCV.put("client_pib", "sdsd")
+                clinetCV.put("client_passport", "cds")
+                clinetCV.put("client_phone", "dasdsad")
+                db.insert(
+                    "client",
+                    1,
+                    clinetCV
                 )
-            }
-
-            val airPortsFlight: ArrayList<Flight> = arrayListOf()
-            for(i in 0..15){
-                airPortsFlight.plus(
-                    Flight(
-                        flightCode = Random.nextInt(0,100),
-                        departureCode = Random.nextInt(0,100),
-                        arrivalCode = Random.nextInt(0,100),
-                        price = Random.nextFloat(),
-                        departureDate = "2020-01-01",
-                        departureTime = "00:00",
-                        arrivalTime = "00:00"
-                    )
-                )
-            }
-
-            GlobalScope.launch {
-                airPortsData.forEach { airPortBeCreated ->
-                    dataBase.addAirport(airPortBeCreated)
-                }
-
-                airPortsFlight.forEach { flightBeCreated ->
-                    dataBase.addFlight(flightBeCreated)
-                }
+                clinetCV.clear()
             }
         }
     }
